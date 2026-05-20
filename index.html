@@ -2370,7 +2370,12 @@
             if (target) {
                 e.preventDefault();
                 const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 78;
-                const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+                // Trim the target section's own top padding so we land on the heading +
+                // content, not on a slab of empty padding sitting under the fixed nav.
+                const padTop = parseFloat(getComputedStyle(target).paddingTop) || 0;
+                const gap = 24;
+                let top = target.getBoundingClientRect().top + window.scrollY + padTop - navHeight - gap;
+                if (top < 0) top = 0;
                 window.scrollTo({ top, behavior: 'smooth' });
                 history.replaceState(null, '', window.location.pathname);
             }
