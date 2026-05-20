@@ -900,8 +900,9 @@
         .how .eyebrow .num { color: var(--sun); }
         .how h2.section-h { color: var(--paper); margin-bottom: 12px; max-width: 18ch; }
         .how h2.section-h em { color: var(--paper); }
-        .how h2.section-h .hi::before { background: var(--sun); }
-        .how h2.section-h .hi { color: var(--ink); }
+        /* On the dark green band, emphasis is plain sun-yellow italic - no highlight block (it clashed) */
+        .how h2.section-h .hi { color: var(--sun); font-style: italic; }
+        .how h2.section-h .hi::before { display: none; }
         .how-lede {
             font-size: 1.04rem;
             line-height: 1.65;
@@ -912,60 +913,46 @@
         .steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            position: relative;
+            gap: 36px 32px;
         }
-        .steps::before {
-            content: "";
-            position: absolute;
-            top: 32px;
-            left: 4%; right: 4%;
-            height: 1px;
-            background: rgba(255, 214, 10, 0.32);
-            z-index: 0;
-        }
-        .step { position: relative; z-index: 1; }
+        .step { position: relative; }
         .step-num {
             display: inline-flex;
             align-items: center; justify-content: center;
-            width: 64px; height: 64px;
+            width: 60px; height: 60px;
             background: var(--paper);
             color: var(--ink);
             font-family: 'Instrument Serif', serif;
             font-style: italic;
-            font-size: 2.1rem;
-            border: 1.5px solid var(--sun);
+            font-size: 2rem;
+            border: 1.5px solid var(--ink);
+            box-shadow: 3px 3px 0 rgba(255, 214, 10, 0.85);
             margin-bottom: 22px;
-            position: relative;
-        }
-        .step-num::after {
-            content: "";
-            position: absolute;
-            inset: -7px;
-            border: 1px dashed rgba(255, 214, 10, 0.32);
-            pointer-events: none;
         }
         .step h3 {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             color: var(--paper);
             margin-bottom: 12px;
             font-weight: 400;
+            line-height: 1.1;
         }
         .step h3 em { font-style: italic; color: var(--sun); }
         .step p {
             font-family: 'Inter Tight', sans-serif;
-            font-size: 0.94rem;
+            font-size: 0.92rem;
             color: rgba(251, 246, 233, 0.72);
             line-height: 1.6;
         }
+        /* Tablet + mobile: lock to a 2x2 quadrant, never a single-column list */
         @media (max-width: 980px) {
-            .steps { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
-            .steps::before { display: none; }
+            .steps { grid-template-columns: repeat(2, 1fr); gap: 40px 30px; }
         }
         @media (max-width: 520px) {
-            .steps { grid-template-columns: 1fr; gap: 28px; }
-            .step-num { width: 56px; height: 56px; font-size: 1.85rem; }
+            .steps { gap: 32px 18px; }
+            .step-num { width: 50px; height: 50px; font-size: 1.65rem; margin-bottom: 16px; }
+            .step h3 { font-size: 1.35rem; }
+            .step p { font-size: 0.88rem; }
         }
 
         /* ============ WHY US - manifesto list ============ */
@@ -2428,4 +2415,6 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Consulting & Audits" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "USCIS Immigration Forms" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DMV-Certified Translations" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Serv
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notary Services" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Life Insurance Educational Session" } },
+      { "@type": "Offer", "itemOffered": { "@ty
