@@ -2401,4 +2401,119 @@
             e.preventDefault();
             let valid = true;
             form.querySelectorAll('[required]').forEach(field => {
-                const row =
+                const row = field.closest('.form-row');
+                if (!field.value.trim()) { row.classList.add('error'); valid = false; }
+                else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) {
+                    row.classList.add('error'); valid = false;
+                }
+            });
+            if (valid) { openModal(); form.reset(); }
+        });
+    }
+</script>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Excellent Income Tax LLC",
+  "url": "https://crossfiber.github.io/excellent-income-tax/",
+  "logo": "https://crossfiber.github.io/excellent-income-tax/assets/star-logo.png",
+  "description": "Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara.",
+  "knowsLanguage": ["en", "es"],
+  "sameAs": [
+    "https://www.facebook.com/share/1BJBBc7Wh8/",
+    "https://www.instagram.com/excinctax",
+    "https://www.linkedin.com/company/excellent-income-tax/"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-702-399-4019",
+      "contactType": "customer service",
+      "email": "info@excellentincometax.com",
+      "areaServed": "US",
+      "availableLanguage": ["English", "Spanish"]
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Excellent Income Tax LLC",
+  "url": "https://crossfiber.github.io/excellent-income-tax/",
+  "image": "https://crossfiber.github.io/excellent-income-tax/assets/og-share.jpg",
+  "telephone": "+1-702-399-4019",
+  "email": "info@excellentincometax.com",
+  "priceRange": "$$",
+  "description": "Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5781 W Sahara Ave, Suite 200",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "postalCode": "89146",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 36.1438, "longitude": -115.2380 },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "16:00"
+  }],
+  "areaServed": [
+    { "@type": "City", "name": "Las Vegas" },
+    { "@type": "City", "name": "Henderson" },
+    { "@type": "City", "name": "North Las Vegas" },
+    { "@type": "AdministrativeArea", "name": "Clark County" }
+  ],
+  "knowsLanguage": ["en", "es"],
+  "knowsAbout": [
+    "Tax Preparation","Bookkeeping","USCIS Immigration Forms","DMV Certified Translations",
+    "Notary Services","Medical Billing and Coding","Business Consulting","Life Insurance","Credit Repair"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Excellent Income Tax Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tax Filing" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bookkeeping" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Billing & Coding" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Consulting & Audits" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "USCIS Immigration Forms" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DMV-Certified Translations" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notary Services" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Life Insurance Educational Session" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Budget & Credit Repair" } }
+    ]
+  },
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "currenciesAccepted": "USD"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What documents should I bring to my first tax appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Photo ID, Social Security card or ITIN, your prior year's return if available, W-2s, 1099s, mortgage interest forms (1098), and any childcare expense records. For self-employed work, bring income totals and expense receipts." }},
+    { "@type": "Question", "name": "Do you offer service in Spanish?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our entire office runs in both English and Spanish." }},
+    { "@type": "Question", "name": "How long does a tax appointment usually take?", "acceptedAnswer": { "@type": "Answer", "text": "About an hour for a typical personal return, longer for self-employed clients with multiple income sources or business returns." }},
+    { "@type": "Question", "name": "Are your translations accepted at the DMV?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide DMV-certified document translations that meet Nevada DMV requirements." }},
+    { "@type": "Question", "name": "Can you help with USCIS immigration forms?", "acceptedAnswer": { "@type": "Answer", "text": "We assist with USCIS form preparation and review for family petitions, work authorization renewals, green card adjustments, and citizenship applications. We are not attorneys." }},
+    { "@type": "Question", "name": "What if I'm behind on past returns?", "acceptedAnswer": { "@type": "Answer", "text": "We can prepare prior-year returns and help you respond to IRS letters or back-tax notices. Start with a 30-minute consultation." }},
+    { "@type": "Question", "name": "Do you handle small-business and self-employed taxes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We prepare returns for sole proprietors, single-member LLCs, and small S-corps, plus ongoing bookkeeping." }},
+    { "@type": "Question", "name": "Can I walk in, or do I need an appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Walk-ins are welcome. During tax season, booking ahead is recommended." }},
+    { "@type": "Question", "name": "How do I get to your office?", "acceptedAnswer": { "@type": "Answer", "text": "5781 W Sahara Avenue, Suite 200, Las Vegas, NV 89146." }}
+  ]
+}
+</script>
+
+</body>
+</html>
