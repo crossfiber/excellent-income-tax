@@ -441,14 +441,19 @@
             background: var(--ink);
         }
 
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.8fr);
+            gap: 56px;
+            align-items: center;
+        }
         .hero h1 {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.7rem, 7.8vw, 6.4rem);
-            line-height: 0.95;
+            font-size: clamp(2.5rem, 4.7vw, 4.5rem);
+            line-height: 0.98;
             font-weight: 400;
             color: var(--ink);
             letter-spacing: -0.02em;
-            max-width: 17ch;
         }
         .hero h1 em {
             font-style: italic;
@@ -471,95 +476,112 @@
         }
         .hero h1 .star-mark {
             display: inline-block;
-            width: 0.78em; height: 0.78em;
+            width: 0.74em; height: 0.74em;
             background-image: url("assets/star-logo.png");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            vertical-align: -0.05em;
+            vertical-align: -0.04em;
             margin: 0 0.02em 0 0.05em;
             transform: rotate(-8deg);
             filter: drop-shadow(2px 3px 0 rgba(14, 14, 14, 0.85));
         }
-
-        .hero-letterhead {
-            margin-top: 44px;
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-            gap: 48px;
-            align-items: end;
-        }
-        .hero-letterhead .lede {
-            font-size: clamp(1.08rem, 1.55vw, 1.28rem);
-            line-height: 1.5;
+        .hero .lede {
+            font-size: clamp(1.04rem, 1.4vw, 1.2rem);
+            line-height: 1.55;
             color: var(--ink-soft);
-            max-width: 38ch;
+            max-width: 44ch;
+            margin-top: 26px;
             font-weight: 400;
         }
-        .hero-letterhead .lede strong { color: var(--ink); font-weight: 600; }
-        .hero-letterhead .lede .es {
+        .hero .lede strong { color: var(--ink); font-weight: 600; }
+        .hero .lede .es {
             font-family: 'Instrument Serif', serif;
             font-style: italic;
             font-weight: 400;
             font-size: 1.12em;
             color: var(--ink);
         }
-        .hero-letterhead .meta {
-            border-top: 1px solid var(--ink);
-            padding-top: 14px;
-            font-family: 'Inter Tight', sans-serif;
-            font-size: 0.82rem;
-            line-height: 1.65;
-            letter-spacing: 0.02em;
-            color: var(--ink);
-        }
-        .hero-letterhead .meta .row {
-            display: flex; justify-content: space-between; align-items: baseline;
-            gap: 16px;
-            padding: 4px 0;
-            border-bottom: 1px dotted rgba(14, 14, 14, 0.30);
-        }
-        .hero-letterhead .meta .row:last-child { border-bottom: 0; }
-        .hero-letterhead .meta .row .k {
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--ink-mute);
-        }
-        .hero-letterhead .meta .row .v {
-            font-weight: 500;
-            color: var(--ink);
-        }
-        .hero-letterhead .meta .row .v a { color: var(--ink); }
-        .hero-letterhead .meta .row .v a:hover { color: var(--sun-deep); }
-        .hero-letterhead .meta .row.feat .v {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: 1.18rem;
-            line-height: 1;
-        }
-
         .hero-ctas {
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
-            margin-top: 40px;
+            margin-top: 30px;
+        }
+
+        /* Hero photo + office card */
+        .hero-figure {
+            position: relative;
+            border: 2px solid var(--ink);
+            background: var(--ink);
+            box-shadow: 12px 12px 0 var(--green-deep);
+        }
+        .hero-photo {
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            border-bottom: 2px solid var(--ink);
+            background: var(--paper-2);
+        }
+        .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .star-badge {
+            position: absolute; top: -20px; left: -20px;
+            width: 62px; height: 62px;
+            background-image: url("assets/star-logo.png");
+            background-size: contain; background-repeat: no-repeat; background-position: center;
+            transform: rotate(-12deg);
+            filter: drop-shadow(2px 3px 0 rgba(14, 14, 14, 0.55));
+            z-index: 3;
+        }
+        .hero-card {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 14px 22px 16px;
+        }
+        .hero-card .row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            gap: 14px;
+            padding: 7px 0;
+            border-bottom: 1px dotted rgba(255, 214, 10, 0.25);
+        }
+        .hero-card .row:last-child { border-bottom: 0; }
+        .hero-card .row .k {
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 0.62rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.2em;
+            color: var(--sun);
+            flex-shrink: 0;
+        }
+        .hero-card .row .v {
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 0.86rem; font-weight: 500;
+            color: var(--paper);
+            text-align: right;
+        }
+        .hero-card .row .v a { color: var(--paper); transition: color 0.2s; }
+        .hero-card .row .v a:hover { color: var(--sun); }
+        .hero-card .row.feat .v {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.32rem; line-height: 1;
+            color: var(--sun);
         }
 
         @media (max-width: 880px) {
-            .hero { padding: calc(var(--nav-h) + 36px) 0 76px; }
-            .hero-letterhead { grid-template-columns: 1fr; gap: 32px; }
-            .hero h1 { max-width: 100%; }
+            .hero { padding: calc(var(--nav-h) + 36px) 0 72px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-figure { max-width: 420px; }
+            .hero-photo { aspect-ratio: 16/11; }
         }
         @media (max-width: 600px) {
-            .hero { padding: calc(var(--nav-h) + 24px) 0 64px; }
-            .hero-eyebrow { font-size: 0.66rem; margin-bottom: 22px; }
-            .hero-eyebrow::before, .hero-eyebrow::after { width: 22px; }
-            .hero h1 { font-size: clamp(2.4rem, 11vw, 3.6rem); }
-            .hero-letterhead { margin-top: 32px; }
-            .hero-letterhead .lede { font-size: 1.04rem; }
+            .hero { padding: calc(var(--nav-h) + 22px) 0 56px; }
+            .hero-eyebrow { font-size: 0.64rem; margin-bottom: 20px; }
+            .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
+            .hero h1 { font-size: clamp(2.3rem, 9.5vw, 3.3rem); }
+            .hero .lede { font-size: 1.02rem; margin-top: 20px; }
+            .hero-ctas { margin-top: 24px; }
+            .hero-figure { box-shadow: 8px 8px 0 var(--green-deep); }
+            .hero-photo { aspect-ratio: 4/3; }
+            .star-badge { width: 50px; height: 50px; top: -15px; left: -15px; }
         }
 
         /* ============ MARQUEE / LEDGER STRIP ============ */
@@ -1339,8 +1361,13 @@
         }
 
         @media (max-width: 600px) {
-            .contact-form { padding: 28px; box-shadow: 4px 4px 0 var(--ink); }
-            .form-grid-2 { grid-template-columns: 1fr; }
+            .contact-form { padding: 22px; box-shadow: 4px 4px 0 var(--ink); }
+            .contact-form .form-head { margin-bottom: 18px; padding-bottom: 12px; }
+            .contact-form .form-head h3 { font-size: 1.45rem; }
+            .form-row { margin-bottom: 12px; }
+            .form-grid-2 { grid-template-columns: 1fr; gap: 12px; }
+            .form-row textarea { min-height: 84px; }
+            .form-submit { padding: 14px; margin-top: 8px; }
         }
 
         .contact-side {
@@ -1350,6 +1377,13 @@
             background: var(--paper);
             box-shadow: 6px 6px 0 var(--sun);
         }
+        .lh-photo {
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            border-bottom: 1.5px solid var(--ink);
+            background: var(--paper-2);
+        }
+        .lh-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .letterhead-head {
             display: flex; align-items: center; justify-content: space-between;
             padding: 22px 28px;
@@ -1416,7 +1450,19 @@
             background: var(--paper-2);
         }
         @media (max-width: 880px) {
-            .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+        }
+        @media (max-width: 600px) {
+            .contact-head { margin-bottom: 36px; }
+            .contact-side { box-shadow: 4px 4px 0 var(--sun); }
+            /* Condense the office card on mobile: photo is desktop-only, blocks tighten */
+            .lh-photo { display: none; }
+            .letterhead-head { padding: 15px 20px; }
+            .lh-block { padding: 13px 20px; }
+            .lh-block .k { margin-bottom: 3px; font-size: 0.6rem; }
+            .lh-block .v { font-size: 1.04rem; line-height: 1.35; }
+            .lh-block.phone .v { font-size: 1.42rem; }
+            .lh-actions { padding: 15px 20px; }
         }
 
         /* ============ FOOTER ============ */
@@ -1567,14 +1613,29 @@
         .footer-bottom .legal a:hover { color: var(--sun); }
 
         @media (max-width: 880px) {
-            .footer-mast { grid-template-columns: auto 1fr; }
-            .footer-mast .mast-edition { grid-column: 1 / -1; text-align: left; padding-top: 14px; border-top: 1px solid rgba(255, 214, 10, 0.18); }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+            .footer-mast { grid-template-columns: auto 1fr; gap: 22px; }
+            .footer-mast .mast-edition { display: none; }
+            .footer-grid { grid-template-columns: 1.2fr 1fr; gap: 32px; }
             .footer-col:first-child { grid-column: 1 / -1; }
         }
-        @media (max-width: 520px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; align-items: flex-start; }
+        /* Mobile: drop the decorative edition + redundant about paragraph, keep a tight 2-up footer */
+        @media (max-width: 600px) {
+            footer { padding: 50px 0 26px; }
+            .footer-mast { gap: 16px; padding-bottom: 24px; margin-bottom: 26px; }
+            .footer-mast img { height: 46px; }
+            .footer-mast .mast-title { font-size: 1.7rem; }
+            .footer-mast .mast-sub { font-size: 0.62rem; letter-spacing: 0.18em; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 26px 22px; margin-bottom: 28px; }
+            .footer-col:first-child { grid-column: 1 / -1; }
+            .footer-col:first-child h5,
+            .footer-col:first-child p { display: none; }
+            .footer-socials { margin-top: 0; }
+            .footer-col h5 { margin-bottom: 11px; }
+            .footer-col ul li { margin-bottom: 7px; }
+            .footer-col ul li a { font-size: 1.08rem; }
+            .footer-col address { font-size: 0.9rem; line-height: 1.6; }
+            .footer-col address strong { margin-top: 11px; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
 
         /* ============ MODAL ============ */
@@ -1702,28 +1763,36 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
     <div class="container hero-inner">
-        <div class="hero-eyebrow">5781 W Sahara Ave · Las Vegas, NV · est. with 20+ yrs experience</div>
-        <h1>Tax, immigration <em>&amp;</em> everything in between<span class="star-mark"></span><br>Done <span class="pop">right</span>.</h1>
-        <div class="hero-letterhead">
-            <p class="lede">From your tax return to your USCIS paperwork to your DMV-certified translation, <strong>one trusted Las Vegas office</strong> handles it all. Nine services, two languages, twenty years of context. <span class="es">Hablamos español.</span></p>
-            <div class="meta">
-                <div class="row">
-                    <span class="k">Office</span>
-                    <span class="v">5781 W Sahara Ave, Ste 200</span>
-                </div>
-                <div class="row">
-                    <span class="k">Hours</span>
-                    <span class="v">Mon – Fri · 9 to 4</span>
-                </div>
-                <div class="row feat">
-                    <span class="k">Call</span>
-                    <span class="v"><a href="tel:+17023994019">(702) 399-4019</a></span>
+        <div class="hero-grid">
+            <div class="hero-left">
+                <div class="hero-eyebrow">Bilingual office · 5781 W Sahara Ave, Las Vegas</div>
+                <h1>Tax, immigration <em>&amp;</em> everything in between<span class="star-mark"></span><br>Done <span class="pop">right</span>.</h1>
+                <p class="lede">From your tax return to your USCIS paperwork to your DMV-certified translation, <strong>one trusted Las Vegas office</strong> handles it all. Two languages, twenty years of experience, no runaround. <span class="es">Hablamos español.</span></p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn-sun">Book an Appointment</a>
+                    <a href="#services" class="btn-link">See what we do <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="hero-ctas">
-            <a href="#contact" class="btn-sun">Book an Appointment</a>
-            <a href="#services" class="btn-link">See the nine services <i class="fa-solid fa-arrow-right"></i></a>
+            <figure class="hero-figure">
+                <span class="star-badge"></span>
+                <div class="hero-photo">
+                    <img src="assets/hero.jpg" alt="A bilingual Excellent Income Tax advisor running the numbers on an invoice with a client in the Las Vegas office" width="640" height="720">
+                </div>
+                <div class="hero-card">
+                    <div class="row">
+                        <span class="k">Office</span>
+                        <span class="v">5781 W Sahara Ave, Ste 200</span>
+                    </div>
+                    <div class="row">
+                        <span class="k">Hours</span>
+                        <span class="v">Mon to Fri · 9 to 4</span>
+                    </div>
+                    <div class="row feat">
+                        <span class="k">Call</span>
+                        <span class="v"><a href="tel:+17023994019">(702) 399-4019</a></span>
+                    </div>
+                </div>
+            </figure>
         </div>
     </div>
 </section>
@@ -1734,7 +1803,7 @@
         <div class="ledger-inner">
             <span><b>Bilingual</b> office</span>
             <span class="star-sep"></span>
-            <span>Nine services, <b>one address</b></span>
+            <span>Taxes <b>to immigration</b></span>
             <span class="star-sep"></span>
             <span><b>20+ years</b> combined</span>
             <span class="star-sep"></span>
@@ -1766,7 +1835,7 @@
         <div class="services-head">
             <div class="eyebrow"><span class="num">ii.</span> What we do</div>
             <h2 class="section-h">Everything you'd open <span class="hi">nine offices</span> for.<br>All under one roof.</h2>
-            <p class="section-lede">Nine services, four simple tracks. Most clients walk in for one, and somewhere around the second visit they realize they never needed another office again. On a phone? Tap a track to open it.</p>
+            <p class="section-lede">Four simple tracks. Most clients walk in for one, and somewhere around the second visit they realize they never needed another office again. On a phone? Tap a track to open it.</p>
         </div>
 
         <div class="cats">
@@ -1921,7 +1990,7 @@
             <div class="why-row">
                 <div class="star-bullet"></div>
                 <div>
-                    <h3>Nine services, <em>one office</em></h3>
+                    <h3>Everything <em>in one place</em></h3>
                     <p>Tax, books, notary, immigration, translations, insurance, credit, medical billing. We stop sending you somewhere else.</p>
                 </div>
             </div>
@@ -2135,6 +2204,9 @@
             </form>
 
             <aside class="contact-side">
+                <div class="lh-photo">
+                    <img src="assets/visit.jpg" alt="A bilingual consultation in progress at the Excellent Income Tax office in Las Vegas" loading="lazy" width="640" height="748">
+                </div>
                 <div class="letterhead-head">
                     <div class="lh-brand">
                         <img src="assets/star-logo.png" alt="">
@@ -2186,7 +2258,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h5>About</h5>
-                <p>Bilingual tax preparation, bookkeeping, USCIS help, notary, and DMV-certified translations under one Las Vegas roof. Twenty years of combined experience serving the families and small businesses of Clark County. <em>Hablamos español.</em></p>
+                <p>Bilingual tax preparation, bookkeeping, USCIS help, notary, and DMV-certified translations from one Las Vegas office. Twenty years of combined experience serving the families and small businesses of Clark County. <em>Hablamos español.</em></p>
                 <div class="footer-socials">
                     <a href="https://www.facebook.com/share/1BJBBc7Wh8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/excinctax" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -2329,92 +2401,4 @@
             e.preventDefault();
             let valid = true;
             form.querySelectorAll('[required]').forEach(field => {
-                const row = field.closest('.form-row');
-                if (!field.value.trim()) { row.classList.add('error'); valid = false; }
-                else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) {
-                    row.classList.add('error'); valid = false;
-                }
-            });
-            if (valid) { openModal(); form.reset(); }
-        });
-    }
-</script>
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Excellent Income Tax LLC",
-  "url": "https://crossfiber.github.io/excellent-income-tax/",
-  "logo": "https://crossfiber.github.io/excellent-income-tax/assets/star-logo.png",
-  "description": "Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara.",
-  "knowsLanguage": ["en", "es"],
-  "sameAs": [
-    "https://www.facebook.com/share/1BJBBc7Wh8/",
-    "https://www.instagram.com/excinctax",
-    "https://www.linkedin.com/company/excellent-income-tax/"
-  ],
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+1-702-399-4019",
-      "contactType": "customer service",
-      "email": "info@excellentincometax.com",
-      "areaServed": "US",
-      "availableLanguage": ["English", "Spanish"]
-    }
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AccountingService",
-  "name": "Excellent Income Tax LLC",
-  "url": "https://crossfiber.github.io/excellent-income-tax/",
-  "image": "https://crossfiber.github.io/excellent-income-tax/assets/og-share.jpg",
-  "telephone": "+1-702-399-4019",
-  "email": "info@excellentincometax.com",
-  "priceRange": "$$",
-  "description": "Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "5781 W Sahara Ave, Suite 200",
-    "addressLocality": "Las Vegas",
-    "addressRegion": "NV",
-    "postalCode": "89146",
-    "addressCountry": "US"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": 36.1438, "longitude": -115.2380 },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "09:00",
-    "closes": "16:00"
-  }],
-  "areaServed": [
-    { "@type": "City", "name": "Las Vegas" },
-    { "@type": "City", "name": "Henderson" },
-    { "@type": "City", "name": "North Las Vegas" },
-    { "@type": "AdministrativeArea", "name": "Clark County" }
-  ],
-  "knowsLanguage": ["en", "es"],
-  "knowsAbout": [
-    "Tax Preparation","Bookkeeping","USCIS Immigration Forms","DMV Certified Translations",
-    "Notary Services","Medical Billing and Coding","Business Consulting","Life Insurance","Credit Repair"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Excellent Income Tax Services",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tax Filing" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bookkeeping" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Billing & Coding" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Consulting & Audits" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "USCIS Immigration Forms" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DMV-Certified Translations" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notary Services" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Life Insurance Educational Session" } },
-      { "@type": "Offer", "itemOffered": { "@ty
+                const row =
