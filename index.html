@@ -435,12 +435,6 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
-        .hero-eyebrow::before,
-        .hero-eyebrow::after {
-            content: "";
-            width: 32px; height: 1px;
-            background: var(--ink);
-        }
 
         .hero-grid {
             display: grid;
@@ -576,7 +570,6 @@
         @media (max-width: 600px) {
             .hero { padding: calc(var(--nav-h) + 22px) 0 56px; }
             .hero-eyebrow { font-size: 0.64rem; margin-bottom: 20px; }
-            .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
             .hero h1 { font-size: clamp(2.3rem, 9.5vw, 3.3rem); }
             .hero .lede { font-size: 1.02rem; margin-top: 20px; }
             .hero-ctas { margin-top: 24px; }
@@ -1475,7 +1468,7 @@
         }
         .footer-mast {
             display: grid;
-            grid-template-columns: auto 1fr auto;
+            grid-template-columns: auto 1fr;
             gap: 32px;
             align-items: center;
             padding-bottom: 36px;
@@ -1502,27 +1495,6 @@
             text-transform: uppercase;
             color: var(--sun);
             margin-top: 4px;
-        }
-        .footer-mast .mast-edition {
-            text-align: right;
-            font-family: 'Inter Tight', sans-serif;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--paper);
-            opacity: 0.7;
-            line-height: 1.6;
-        }
-        .footer-mast .mast-edition em {
-            display: block;
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1rem;
-            color: var(--sun);
-            letter-spacing: 0;
-            text-transform: none;
-            font-weight: 400;
         }
         .footer-grid {
             display: grid;
@@ -1613,7 +1585,6 @@
 
         @media (max-width: 880px) {
             .footer-mast { grid-template-columns: auto 1fr; gap: 22px; }
-            .footer-mast .mast-edition { display: none; }
             .footer-grid { grid-template-columns: 1.2fr 1fr; gap: 32px; }
             .footer-col:first-child { grid-column: 1 / -1; }
         }
@@ -1766,7 +1737,7 @@
     <div class="container hero-inner">
         <div class="hero-grid">
             <div class="hero-left">
-                <div class="hero-eyebrow">Bilingual office · 5781 W Sahara Ave, Las Vegas</div>
+                <div class="hero-eyebrow">5781 W Sahara Ave, Las Vegas</div>
                 <h1>Tax, immigration <em>&amp;</em> everything in between<span class="star-mark"></span><br>Done <span class="pop">right</span>.</h1>
                 <p class="lede">From your tax return to your USCIS paperwork to your DMV-certified translation, <strong>one trusted Las Vegas office</strong> handles it all. Two languages, twenty years of experience, no runaround. <span class="es">Hablamos español.</span></p>
                 <div class="hero-ctas">
@@ -2246,10 +2217,6 @@
             <div>
                 <div class="mast-title">Excellent <em>Income</em> Tax</div>
                 <div class="mast-sub">Established · Las Vegas · Bilingual office</div>
-            </div>
-            <div class="mast-edition">
-                Vol. XX · No. 01<br>
-                <em>The neighborhood office</em>
             </div>
         </div>
         <div class="footer-grid">
