@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Excellent Income Tax | Bilingual Tax, Bookkeeping & Immigration in Las Vegas</title>
-    <meta name="description" content="Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara. (702) 609-6527.">
+    <meta name="description" content="Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara. (702) 399-4019.">
     <meta name="keywords" content="Las Vegas tax preparation, bilingual tax preparer Las Vegas, USCIS forms Las Vegas, DMV certified translations Nevada, bookkeeping Las Vegas, notary West Sahara, medical billing coding Nevada, life insurance Las Vegas, immigration help Spanish Las Vegas">
     <meta name="geo.position" content="36.1438,-115.2380">
     <meta name="geo.placename" content="Las Vegas, NV">
@@ -49,8 +49,12 @@
             --paper-2: #F4ECD3;
             --paper-3: #ECE0BD;
             --sun: #FFD60A;
-            --sun-deep: #E8B400;
-            --rust: #C4391A;
+            --sun-deep: #C99700;
+            --green: #2F6B33;
+            --green-deep: #163E1C;
+            --green-deep-2: #0E2C12;
+            --green-tint: #E7EFDD;
+            --warn: #8A4B1E;
             --rule: rgba(14, 14, 14, 0.92);
             --hairline: rgba(14, 14, 14, 0.14);
             --nav-h: 78px;
@@ -616,7 +620,7 @@
             font-family: 'Instrument Serif', serif;
             font-style: italic;
             font-size: 1.1rem;
-            color: var(--sun-deep);
+            color: var(--green);
             letter-spacing: 0;
             font-weight: 400;
         }
@@ -712,121 +716,170 @@
             margin-bottom: 60px;
             max-width: 880px;
         }
-        .menu {
+        .cats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 64px 80px;
+            gap: 24px;
         }
-        .menu-group { position: relative; }
-        .menu-group-head {
-            display: flex; align-items: baseline;
-            gap: 16px;
-            margin-bottom: 18px;
-            padding-bottom: 12px;
+        .cat {
+            border: 1.5px solid var(--ink);
+            background: var(--paper);
+            box-shadow: 5px 5px 0 var(--ink);
+            display: flex; flex-direction: column;
+        }
+        /* Header bar */
+        .cat-head {
+            display: flex; align-items: center; gap: 16px;
+            width: 100%;
+            padding: 18px 24px;
             border-bottom: 1.5px solid var(--ink);
+            background: var(--green-deep);
+            color: var(--paper);
+            text-align: left;
+            cursor: default;
         }
-        .menu-group-head .num {
+        .cat-head .num {
             font-family: 'Instrument Serif', serif;
             font-style: italic;
-            font-size: 2.2rem;
+            font-size: 1.9rem;
             line-height: 0.9;
-            color: var(--ink);
+            color: var(--sun);
             font-weight: 400;
+            flex-shrink: 0;
         }
-        .menu-group-head h3 {
+        .cat-head .cat-title {
+            flex: 1; min-width: 0;
+        }
+        .cat-head .cat-title h3 {
             font-family: 'Inter Tight', sans-serif;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 0.24em;
+            letter-spacing: 0.20em;
             text-transform: uppercase;
-            color: var(--ink);
-            flex: 1;
+            color: var(--paper);
+            line-height: 1.2;
         }
-        .menu-group-head .badge {
+        .cat-head .cat-title .count {
             font-family: 'Instrument Serif', serif;
             font-style: italic;
-            font-size: 0.95rem;
-            color: var(--sun-deep);
+            font-size: 0.92rem;
+            color: rgba(251, 246, 233, 0.66);
+            letter-spacing: 0;
+            text-transform: none;
             font-weight: 400;
         }
-        .menu-item {
-            display: flex;
-            align-items: baseline;
-            padding: 14px 0;
-            border-bottom: 1px dotted rgba(14, 14, 14, 0.22);
-            position: relative;
-            transition: padding-left 0.22s ease;
-        }
-        .menu-item:hover { padding-left: 8px; }
-        .menu-item:last-child { border-bottom: none; }
-        .menu-item .item-name {
+        .cat-head .badge {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.32rem, 1.85vw, 1.55rem);
-            line-height: 1.15;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--sun);
+            font-weight: 400;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .cat-head .chev {
+            display: none;
+            width: 30px; height: 30px;
+            align-items: center; justify-content: center;
+            border: 1px solid rgba(255, 214, 10, 0.5);
+            color: var(--sun);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            transition: transform 0.32s ease;
+        }
+        /* Body */
+        .cat-body { display: block; }
+        .svc-line {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-areas: "name meta" "blurb book";
+            column-gap: 18px;
+            row-gap: 6px;
+            align-items: baseline;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--hairline);
+            transition: background 0.2s ease;
+        }
+        .svc-line:last-child { border-bottom: none; }
+        .svc-line:hover { background: var(--green-tint); }
+        .svc-line .name {
+            grid-area: name;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.42rem;
+            line-height: 1.1;
             color: var(--ink);
             font-weight: 400;
             font-style: italic;
-            flex-shrink: 0;
         }
-        .menu-item .leaders {
-            flex: 1;
-            margin: 0 16px;
-            border-bottom: 1px dotted rgba(14, 14, 14, 0.42);
-            transform: translateY(-4px);
-            min-width: 24px;
-        }
-        .menu-item .item-meta {
-            display: flex;
-            align-items: baseline;
-            gap: 14px;
-            flex-shrink: 0;
-        }
-        .menu-item .duration {
+        .svc-line .duration {
+            grid-area: meta;
+            justify-self: end;
             font-family: 'Inter Tight', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--ink-mute);
-            letter-spacing: 0.06em;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 0.10em;
+            background: var(--sun);
+            padding: 3px 9px;
+            white-space: nowrap;
         }
-        .menu-item .book-link {
+        .svc-line .blurb {
+            grid-area: blurb;
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 0.86rem;
+            color: var(--ink-mute);
+            line-height: 1.45;
+            max-width: 42ch;
+        }
+        .svc-line .book {
+            grid-area: book;
+            justify-self: end;
+            align-self: end;
             display: inline-flex; align-items: center; gap: 6px;
             font-family: 'Inter Tight', sans-serif;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--ink);
-            letter-spacing: 0.16em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             padding-bottom: 1px;
             border-bottom: 1.5px solid var(--ink);
             transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
         }
-        .menu-item .book-link:hover { color: var(--sun-deep); border-color: var(--sun-deep); }
-        .menu-item .book-link i { font-size: 0.7em; }
-        .menu-item .item-blurb {
-            display: block;
-            font-family: 'Inter Tight', sans-serif;
-            font-size: 0.82rem;
-            color: var(--ink-mute);
-            line-height: 1.4;
-            margin-top: 4px;
-            letter-spacing: 0;
-            font-style: normal;
-        }
+        .svc-line .book:hover { color: var(--green); border-color: var(--green); }
+        .svc-line .book i { font-size: 0.7em; transition: transform 0.2s; }
+        .svc-line .book:hover i { transform: translateX(2px); }
 
         @media (max-width: 880px) {
-            .menu { grid-template-columns: 1fr; gap: 48px; }
+            .cats { grid-template-columns: 1fr; gap: 18px; }
+            .cat { box-shadow: 4px 4px 0 var(--ink); }
+            /* Mobile: header becomes the tap target, body collapses */
+            .cat-head { cursor: pointer; }
+            .cat-head .chev { display: inline-flex; }
+            .cat.open .cat-head .chev { transform: rotate(180deg); }
+            .cat-body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+            }
+            .cat.open .cat-body { max-height: 900px; }
         }
         @media (max-width: 600px) {
-            .menu-item { flex-wrap: wrap; padding: 12px 0; }
-            .menu-item .item-name { font-size: 1.25rem; line-height: 1.2; flex-basis: 100%; }
-            .menu-item .leaders { display: none; }
-            .menu-item .item-meta { margin-top: 4px; }
-            .menu-item .item-blurb { flex-basis: 100%; }
+            .svc-line {
+                grid-template-columns: 1fr auto;
+                grid-template-areas: "name name" "blurb blurb" "duration book";
+                row-gap: 9px;
+                padding: 16px 20px;
+            }
+            .svc-line .name { font-size: 1.3rem; }
+            .svc-line .duration { grid-area: duration; justify-self: start; align-self: center; }
+            .svc-line .book { grid-area: book; justify-self: end; align-self: center; }
         }
 
         /* ============ HOW IT WORKS - vintage instructions ============ */
         .how {
-            background: var(--ink);
+            background: var(--green-deep);
             color: var(--paper);
             position: relative;
             overflow: hidden;
@@ -836,9 +889,11 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(90deg, rgba(255, 214, 10, 0.04) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(255, 214, 10, 0.05) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255, 214, 10, 0.05) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
+            opacity: 0.6;
         }
         .how-inner { position: relative; z-index: 2; }
         .how .eyebrow { color: var(--sun); }
@@ -1246,8 +1301,8 @@
         .form-row.error input,
         .form-row.error textarea,
         .form-row.error select {
-            background: #FBE6E1;
-            box-shadow: 3px 3px 0 var(--rust);
+            background: #F4EAD2;
+            box-shadow: 3px 3px 0 var(--warn);
         }
         .form-row textarea { resize: vertical; min-height: 110px; }
         .form-row input::placeholder,
@@ -1257,7 +1312,7 @@
             font-family: 'Instrument Serif', serif;
             font-style: italic;
             font-size: 0.92rem;
-            color: var(--rust);
+            color: var(--warn);
             margin-top: 5px;
         }
         .form-row.error .form-error-msg { display: block; }
@@ -1617,13 +1672,13 @@
             <a href="#contact">Visit</a>
         </div>
         <div class="nav-right">
-            <a href="tel:+17026096527" class="nav-phone">
+            <a href="tel:+17023994019" class="nav-phone">
                 <i class="fa-solid fa-phone-volume"></i>
-                (702) 609-6527
+                (702) 399-4019
             </a>
             <a href="#contact" class="btn-sun">Book Now</a>
             <div class="mobile-actions">
-                <a href="tel:+17026096527" class="mobile-call" aria-label="Call (702) 609-6527"><i class="fa-solid fa-phone-volume"></i></a>
+                <a href="tel:+17023994019" class="mobile-call" aria-label="Call (702) 399-4019"><i class="fa-solid fa-phone-volume"></i></a>
                 <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
@@ -1649,9 +1704,9 @@
         <a href="#contact" onclick="closeDrawer()">Visit</a>
     </div>
     <div class="drawer-footer">
-        <a href="tel:+17026096527" class="drawer-phone">
+        <a href="tel:+17023994019" class="drawer-phone">
             <i class="fa-solid fa-phone-volume"></i>
-            (702) 609-6527
+            (702) 399-4019
         </a>
         <a href="#contact" class="btn-sun" onclick="closeDrawer()" style="justify-content: center;">Book an Appointment</a>
     </div>
@@ -1675,7 +1730,7 @@
                 </div>
                 <div class="row feat">
                     <span class="k">Call</span>
-                    <span class="v"><a href="tel:+17026096527">(702) 609-6527</a></span>
+                    <span class="v"><a href="tel:+17023994019">(702) 399-4019</a></span>
                 </div>
             </div>
         </div>
@@ -1723,110 +1778,104 @@
     <div class="container">
         <div class="services-head">
             <div class="eyebrow"><span class="num">ii.</span> What we do</div>
-            <h2 class="section-h">Everything you'd open <span class="hi">nine offices</span> for.<br>All on one card.</h2>
-            <p class="section-lede">Nine services grouped into four tracks. Most clients walk in for one, and somewhere around the second visit they realize they never needed another office again.</p>
+            <h2 class="section-h">Everything you'd open <span class="hi">nine offices</span> for.<br>All under one roof.</h2>
+            <p class="section-lede">Nine services, four simple tracks. Most clients walk in for one, and somewhere around the second visit they realize they never needed another office again. On a phone? Tap a track to open it.</p>
         </div>
 
-        <div class="menu">
-            <div class="menu-group">
-                <div class="menu-group-head">
+        <div class="cats">
+            <div class="cat open">
+                <button class="cat-head" type="button" aria-expanded="true" onclick="toggleCat(this)">
                     <span class="num">i.</span>
-                    <h3>Tax &amp; Books</h3>
+                    <span class="cat-title"><h3>Tax &amp; Books</h3><span class="count">2 services</span></span>
                     <span class="badge">most requested</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Tax Filing<span class="item-blurb">Individuals, self-employed, small business returns.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="cat-body">
+                    <div class="svc-line">
+                        <span class="name">Tax Filing</span>
                         <span class="duration">1 HR</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Bookkeeping<span class="item-blurb">Monthly clean-ups so year-end isn't a surprise.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                        <span class="blurb">Individuals, self-employed, and small business returns. Every credit you qualify for.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="svc-line">
+                        <span class="name">Bookkeeping</span>
                         <span class="duration">30 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
+                        <span class="blurb">Monthly clean-ups so year-end is never a surprise.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-group">
-                <div class="menu-group-head">
+            <div class="cat">
+                <button class="cat-head" type="button" aria-expanded="false" onclick="toggleCat(this)">
                     <span class="num">ii.</span>
-                    <h3>Business &amp; Health</h3>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Business Consulting<span class="item-blurb">Strategy, audits, structure for small firms.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                    <span class="cat-title"><h3>Business &amp; Health</h3><span class="count">2 services</span></span>
+                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="cat-body">
+                    <div class="svc-line">
+                        <span class="name">Business Consulting</span>
                         <span class="duration">30 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Medical Billing<span class="item-blurb">Coding and billing for independent providers.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                        <span class="blurb">Strategy, audits, and structure for small firms.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="svc-line">
+                        <span class="name">Medical Billing</span>
                         <span class="duration">1 HR</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
+                        <span class="blurb">Coding and billing for independent providers.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-group">
-                <div class="menu-group-head">
+            <div class="cat">
+                <button class="cat-head" type="button" aria-expanded="false" onclick="toggleCat(this)">
                     <span class="num">iii.</span>
-                    <h3>Legal &amp; Documents</h3>
+                    <span class="cat-title"><h3>Legal &amp; Documents</h3><span class="count">3 services</span></span>
                     <span class="badge">bilingual</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">USCIS Forms<span class="item-blurb">Family petitions, work auth, citizenship.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="cat-body">
+                    <div class="svc-line">
+                        <span class="name">USCIS Forms</span>
                         <span class="duration">30 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">DMV Translations<span class="item-blurb">Certified for Nevada DMV use.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                        <span class="blurb">Family petitions, work authorization, and citizenship.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="svc-line">
+                        <span class="name">DMV Translations</span>
                         <span class="duration">15 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Notary<span class="item-blurb">Walk-ins welcome, same-day stamp.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                        <span class="blurb">Certified for Nevada DMV use.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="svc-line">
+                        <span class="name">Notary</span>
                         <span class="duration">15 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
+                        <span class="blurb">Walk-ins welcome, same-day stamp.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-group">
-                <div class="menu-group-head">
+            <div class="cat">
+                <button class="cat-head" type="button" aria-expanded="false" onclick="toggleCat(this)">
                     <span class="num">iv.</span>
-                    <h3>Personal Finance</h3>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Budget &amp; Credit<span class="item-blurb">Cleanups and credit-repair planning.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                    <span class="cat-title"><h3>Personal Finance</h3><span class="count">2 services</span></span>
+                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="cat-body">
+                    <div class="svc-line">
+                        <span class="name">Budget &amp; Credit</span>
                         <span class="duration">30 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Life Insurance<span class="item-blurb">Educational session, zero pressure.</span></span>
-                    <span class="leaders"></span>
-                    <span class="item-meta">
+                        <span class="blurb">Clean-ups and credit-repair planning.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="svc-line">
+                        <span class="name">Life Insurance</span>
                         <span class="duration">30 MIN</span>
-                        <a href="#contact" class="book-link">Book <i class="fa-solid fa-arrow-right"></i></a>
-                    </span>
+                        <span class="blurb">Educational session with zero pressure.</span>
+                        <a href="#contact" class="book">Book <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1940,7 +1989,7 @@
                 <div class="eyebrow"><span class="num">vi.</span> Questions</div>
                 <h2 class="section-h">Asked <em>before, answered now</em>.</h2>
                 <p>If we missed something, the fastest answer is usually a phone call. We're at the office Monday through Friday, 9 to 4.</p>
-                <a href="tel:+17026096527" class="faq-cta"><i class="fa-solid fa-phone-volume"></i>(702) 609-6527</a>
+                <a href="tel:+17023994019" class="faq-cta"><i class="fa-solid fa-phone-volume"></i>(702) 399-4019</a>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
@@ -2112,7 +2161,7 @@
                 </div>
                 <div class="lh-block phone">
                     <div class="k">Phone</div>
-                    <div class="v"><a href="tel:+17026096527">(702) 609-6527</a></div>
+                    <div class="v"><a href="tel:+17023994019">(702) 399-4019</a></div>
                 </div>
                 <div class="lh-block">
                     <div class="k">Email</div>
@@ -2174,7 +2223,7 @@
                     5781 W Sahara Ave, Suite 200<br>
                     Las Vegas, NV 89146
                     <strong>Phone</strong>
-                    <a href="tel:+17026096527">(702) 609-6527</a>
+                    <a href="tel:+17023994019">(702) 399-4019</a>
                     <strong>Email</strong>
                     <a href="mailto:info@excellentincometax.com">info@excellentincometax.com</a>
                     <strong>Hours</strong>
@@ -2200,7 +2249,7 @@
         <div class="star-icon"></div>
         <h3>Message received</h3>
         <p>Thanks for reaching out. We'll get back to you during office hours, usually within one business day. If it's urgent, give us a call.</p>
-        <a href="tel:+17026096527" class="btn-sun"><i class="fa-solid fa-phone-volume"></i>Call the office</a>
+        <a href="tel:+17023994019" class="btn-sun"><i class="fa-solid fa-phone-volume"></i>Call the office</a>
     </div>
 </div>
 
@@ -2242,6 +2291,16 @@
         }
     }
     window.toggleFaq = toggleFaq;
+
+    // Service category accordion (mobile only - desktop shows all expanded)
+    function toggleCat(button) {
+        if (window.innerWidth > 880) return;
+        const cat = button.closest('.cat');
+        const willOpen = !cat.classList.contains('open');
+        cat.classList.toggle('open', willOpen);
+        button.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    }
+    window.toggleCat = toggleCat;
 
     // Smooth anchor scroll without hash persistence
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -2312,7 +2371,7 @@
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+1-702-609-6527",
+      "telephone": "+1-702-399-4019",
       "contactType": "customer service",
       "email": "info@excellentincometax.com",
       "areaServed": "US",
@@ -2329,7 +2388,7 @@
   "name": "Excellent Income Tax LLC",
   "url": "https://crossfiber.github.io/excellent-income-tax/",
   "image": "https://crossfiber.github.io/excellent-income-tax/assets/og-share.jpg",
-  "telephone": "+1-702-609-6527",
+  "telephone": "+1-702-399-4019",
   "email": "info@excellentincometax.com",
   "priceRange": "$$",
   "description": "Bilingual Las Vegas office for tax preparation, bookkeeping, USCIS forms, notary, and DMV-certified translations. 20+ years on West Sahara.",
@@ -2369,34 +2428,4 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Consulting & Audits" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "USCIS Immigration Forms" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DMV-Certified Translations" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notary Services" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Life Insurance Educational Session" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Budget & Credit Repair" } }
-    ]
-  },
-  "paymentAccepted": "Cash, Credit Card, Debit Card",
-  "currenciesAccepted": "USD"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What documents should I bring to my first tax appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Photo ID, Social Security card or ITIN, your prior year's return if available, W-2s, 1099s, mortgage interest forms (1098), and any childcare expense records. For self-employed work, bring income totals and expense receipts." }},
-    { "@type": "Question", "name": "Do you offer service in Spanish?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our entire office runs in both English and Spanish." }},
-    { "@type": "Question", "name": "How long does a tax appointment usually take?", "acceptedAnswer": { "@type": "Answer", "text": "About an hour for a typical personal return, longer for self-employed clients with multiple income sources or business returns." }},
-    { "@type": "Question", "name": "Are your translations accepted at the DMV?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide DMV-certified document translations that meet Nevada DMV requirements." }},
-    { "@type": "Question", "name": "Can you help with USCIS immigration forms?", "acceptedAnswer": { "@type": "Answer", "text": "We assist with USCIS form preparation and review for family petitions, work authorization renewals, green card adjustments, and citizenship applications. We are not attorneys." }},
-    { "@type": "Question", "name": "What if I'm behind on past returns?", "acceptedAnswer": { "@type": "Answer", "text": "We can prepare prior-year returns and help you respond to IRS letters or back-tax notices. Start with a 30-minute consultation." }},
-    { "@type": "Question", "name": "Do you handle small-business and self-employed taxes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We prepare returns for sole proprietors, single-member LLCs, and small S-corps, plus ongoing bookkeeping." }},
-    { "@type": "Question", "name": "Can I walk in, or do I need an appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Walk-ins are welcome. During tax season, booking ahead is recommended." }},
-    { "@type": "Question", "name": "How do I get to your office?", "acceptedAnswer": { "@type": "Answer", "text": "5781 W Sahara Avenue, Suite 200, Las Vegas, NV 89146." }}
-  ]
-}
-</script>
-
-</body>
-</html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+      { "@type": "Offer", "itemOffered": { "@type": "Serv
